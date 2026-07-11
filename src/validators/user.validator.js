@@ -7,7 +7,7 @@ export const validarCrearUsuario = [
 
     body("email")
     .notEmpty().withMessage("El Campo email no puede estar vacio")
-    .isEmail.withMessage("Email invalido"),
+    .isEmail().withMessage("Email invalido"),
 
     body("password")
     .notEmpty().withMessage("El Campo password no puede estar vacio")

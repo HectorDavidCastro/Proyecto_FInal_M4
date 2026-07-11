@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 
-const users = await User.findAll();
+
 
 export async function crear(data) {
     const{nombre, email, password, rol} = data;
@@ -14,11 +14,13 @@ export async function crear(data) {
         rol: rol
     });
 
-    const {password:_, ...newUser} =newUser.toJSON();
-    return newUser
+    const {password:_, ...usuarioSinPassword} = (await newUser).toJSON();
+    return usuarioSinPassword
 }
 
 export const encontrarPorEmail=async (email) => {
     const user = await User.findOne({where: {email:email}});
     return user
 }
+
+

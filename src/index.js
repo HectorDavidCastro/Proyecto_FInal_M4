@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.user("/api", userRouter);
+app.use("/api", userRouter);
 
 async function iniciar() {
     try {
